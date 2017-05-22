@@ -75,6 +75,18 @@
 				
 		<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/</url-pattern><!-- 拦截所有的请求 -->
+		<!-- 　
+		/*是拦截所有请求，包括视图解析后跳转的.jsp页面，
+		/则不会拦截视图解析后的.jsp页面！ 
+		另外记住浏览器是无法直接访问WEB-INF文件夹下的任何文件的，
+		必须通过后台servlet返回页面才行
+		-->
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errorPage.jsp</location>
+	</error-page>
 </web-app>  
