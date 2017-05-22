@@ -23,7 +23,7 @@ public class UserDao {
 		Query q = session.createSQLQuery("select * from user");
 		List<Map> list = q.list();
 		System.out.println("list:"+list);
-		System.out.println("ssssssss");
+		System.out.println("获取数据库的数据成功！");
 	}
 	
 }
