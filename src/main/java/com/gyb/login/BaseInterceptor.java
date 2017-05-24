@@ -1,5 +1,6 @@
 package com.gyb.login;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -28,8 +29,16 @@ public class BaseInterceptor implements HandlerInterceptor{
 
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2) throws Exception {
+		Cookie[] cooks = arg0.getCookies();
+		for (Cookie cookie : cooks) {
+			System.out.println("name="+cookie.getName()+";    value="+cookie.getValue());
+		}
+		Cookie cookie = new Cookie("myCookie", "myValue");
+		arg1.addCookie(cookie);
+		
+		
 		String Url= arg0.getRequestURI();
-		System.out.println("preHandle========"+Url);
+		System.out.println("preHandle-Url="+Url);
 		//获取session里的登录状态值
 	    String str = (String) arg0.getSession().getAttribute("isLogin");
 	    if(str!=null && str.equals("yes")){//已登录

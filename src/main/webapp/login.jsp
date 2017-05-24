@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  
    function JumpHome(){
     	  var x = $("input[name='userName']").val();
-		  alert(x); 
+		  //alert(x); 
 		  window.location.href="user/home";
   	}
 	 
