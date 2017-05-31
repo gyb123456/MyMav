@@ -29,11 +29,31 @@ public class BaseInterceptor implements HandlerInterceptor{
 
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
 			Object arg2) throws Exception {
+		//读取Cookie
 		Cookie[] cooks = arg0.getCookies();
-		for (Cookie cookie : cooks) {
-			System.out.println("name="+cookie.getName()+";    value="+cookie.getValue());
+		if(cooks != null){
+			for (Cookie cookie : cooks) {
+				System.out.println("name="+cookie.getName()+";    value="+cookie.getValue());
+			}
 		}
+		
+		System.out.println("以上是cookies里的值");
 		Cookie cookie = new Cookie("myCookie", "myValue");
+		/**
+		 * 删除Cookie的做法如下
+		 * Cookie cookie = new Cookie("key", null);
+			cookie.setMaxAge(0);
+		 */
+		/**
+		 * 这里注意指定cookie的路径,
+		 * 不设置的话为当前路径(对于Servlet来说为request.getContextPath() + web.xml里配置的该Servlet的url-pattern路径部分)
+		 */
+		cookie.setPath("/");
+		/**
+		 * cookie.setMaxAge(60);设置60秒生存期，
+		 * 如果设置为负值的话，则为浏览器进程Cookie(内存中保存)，关闭浏览器就失效。
+		 */
+		cookie.setMaxAge(60);
 		arg1.addCookie(cookie);
 		
 		
