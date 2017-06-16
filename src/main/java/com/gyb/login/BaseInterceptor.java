@@ -62,7 +62,7 @@ public class BaseInterceptor implements HandlerInterceptor{
 		//获取session里的登录状态值
 	    String str = (String) arg0.getSession().getAttribute("isLogin");
 	    if(str!=null && str.equals("yes")){//已登录
-	      System.out.println("已登陆！");
+	      System.out.println("已登录！");
 	      if(Url.equals("/MyMav/")){//直接跳到项目主页home页面
 	    	arg1.sendRedirect("user/home");
 	  	    return false;
