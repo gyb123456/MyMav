@@ -89,4 +89,10 @@
 		<error-code>404</error-code>
 		<location>/errorPage.jsp</location>
 	</error-page>
+	
+	<!-- 设置HttpSession失效时间 -->
+     <session-config>
+     	<session-timeout>2</session-timeout>
+     </session-config>
+     
 </web-app>  

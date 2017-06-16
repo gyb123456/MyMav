@@ -37,12 +37,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     	这是登录界面
+    	
     	<form action="user/login" method="post">
 	    	用户名：<input name="userName" value="1">
 	    	密码：<input name="password">
-    	<input type="submit" value="登录" />
-    	</form>
-    	<button onclick="JumpHome()">跳到home界面</button>
+    	<input type="submit" value="登录">
+    	</form><button onclick="JumpHome()">跳到home界面</button>
   </body>
 
 </html>
